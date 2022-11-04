@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Peach Payment Demo</title>
+    </head>
+
+    <body>
+        <h1>Peach Payment Integration</h1>
+
+        <form name="Checkout" action="https://testsecure.peachpayments.com/checkout" method="POST" accept-charset="utf-8">
+            <input type="hidden" name="amount" id="amount" />  
+            <input type="hidden" name="authentication.entityId" id="entityId" />
+            <input type="hidden" name="currency" id="currency" />
+            <input type="hidden" name="merchantTransactionId" id="transactionId" />
+            <input type="hidden" name="nonce" id="nonce" />
+            <input type="hidden" name="paymentType" id="paymentType" /> 
+            <input type="hidden" name="shopperResultUrl" id="shopperResultUrl" />
+            <input type="hidden" name="signature" id="signature" />
+
+            <input type = "submit" value = "Continue to Payment Method" />
+        </form >
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>   
+        
+        <script>
+            const amount = 550;
+            const entityId = '8ac7a4c8841c938b0184257ed8b429f5';
+            const currency = 'ZAR';
+            const transactionId = '874';
+            const nonce = 'JHGJSGHDSKJHGJDHGJH';
+            const paymentType = 'DB';
+            const shopperResultUrl = 'https://2e28-197-155-10-26.eu.ngrok.io/shopperResultUrl.html';
+ 
+            const hash = CryptoJS.HmacSHA256(`amount${amount}authentication.entityId${entityId}currency${currency}merchantTransactionId${transactionId}nonce${nonce}paymentType${paymentType}shopperResultUrl${shopperResultUrl}`, "3eea7c3057ca11ed9b4906f4cbb0b715");
+            // const hash = CryptoJS.HmacSHA256("amount20authentication.entityId8ac7a4c8841c938b0184257ed8b429f5currencyZARmerchantTransactionId12nonceJHGJSGHDSKJHGJDHGJHpaymentTypeDBshopperResultUrlhttps://7995-102-65-4-106.eu.ngrok.io/shopperResultUrl.html", "3eea7c3057ca11ed9b4906f4cbb0b715");
+            // const signature = hash.toString(CryptoJS.enc.Hex);
+            
+            document.getElementById('amount').value = amount;
+            document.getElementById('entityId').value = entityId;
+            document.getElementById('currency').value = currency;
+            document.getElementById('transactionId').value = transactionId;
+            document.getElementById('nonce').value = nonce;
+            document.getElementById('paymentType').value = paymentType;
+            document.getElementById('shopperResultUrl').value = shopperResultUrl;
+            document.getElementById('signature').value = hash;
+        </script>
+    </body>
+
+    <style>
+        form {
+            padding: 10px;
+        }
+
+        form input {
+            display: block;
+            margin: auto;
+            width: 90%;
+        }
+    </style>
+
+</html>
+
