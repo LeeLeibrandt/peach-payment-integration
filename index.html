@@ -23,18 +23,15 @@
             <input type = "submit" value = "Continue to Payment Method" />
         </form >
 
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>   
-        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>     
         <script>
             const amount = 550;
             const entityId = '8ac7a4c8841c938b0184257ed8b429f5';
             const currency = 'ZAR';
-            const transactionId = '7656728';
+            const transactionId = '765672';
             const nonce = 'JHGJSGHDSKJHGJDHGJH';
             const paymentType = 'DB';
-            const shopperResultUrl = 'https://peach-payment-integration.vercel.app/shopperResultUrl.html';
- 
+            const shopperResultUrl = 'peach-payment-integration.vercel.app/shopperResultUrl.html';
             const hash = CryptoJS.HmacSHA256(`amount${amount}authentication.entityId${entityId}currency${currency}merchantTransactionId${transactionId}nonce${nonce}paymentType${paymentType}shopperResultUrl${shopperResultUrl}`, "3eea7c3057ca11ed9b4906f4cbb0b715");
             
             document.getElementById('amount').value = amount;
