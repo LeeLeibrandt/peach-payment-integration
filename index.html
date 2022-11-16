@@ -10,7 +10,7 @@
     <body>
         <h1>Peach Payment Integration</h1>
 
-        <form name="Checkout" action="https://testsecure.peachpayments.com/checkout/initiate" method="POST" accept-charset="utf-8">
+        <form name="Checkout" action="https://testsecure.peachpayments.com/checkout" method="POST" accept-charset="utf-8">
             <input type="hidden" name="amount" id="amount" />  
             <input type="hidden" name="authentication.entityId" id="entityId" />
             <input type="hidden" name="currency" id="currency" />
@@ -25,13 +25,13 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>     
         <script>
-            const amount = 550;
+            const amount = 100;
             const entityId = '8ac7a4c8841c938b0184257ed8b429f5';
             const currency = 'USD';
-            const transactionId = '7567';
+            const transactionId = '87653435';
             const nonce = 'JHGJSGHDSKJHGJDHGJH';
             const paymentType = 'DB';
-            const shopperResultUrl = 'https://peach-payment-integration.vercel.app';
+            const shopperResultUrl = 'https://peach-payment-integration.vercel.app/shopperResultUrl.html';
             const hash = CryptoJS.HmacSHA256(`amount${amount}authentication.entityId${entityId}currency${currency}merchantTransactionId${transactionId}nonce${nonce}paymentType${paymentType}shopperResultUrl${shopperResultUrl}`, "3eea7c3057ca11ed9b4906f4cbb0b715");
             
             document.getElementById('amount').value = amount;
