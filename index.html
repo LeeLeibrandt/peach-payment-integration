@@ -10,7 +10,7 @@
     <body>
         <h1>Peach Payment Integration</h1>
 
-        <form name="Checkout" action="https://testsecure.peachpayments.com/checkout" method="POST" accept-charset="utf-8">
+        <form name="Checkout" action="https://testsecure.peachpayments.com/checkout/initiate" method="POST" accept-charset="utf-8">
             <input type="hidden" name="amount" id="amount" />  
             <input type="hidden" name="authentication.entityId" id="entityId" />
             <input type="hidden" name="currency" id="currency" />
@@ -20,7 +20,7 @@
             <input type="hidden" name="shopperResultUrl" id="shopperResultUrl" />
             <input type="hidden" name="signature" id="signature" />
 
-            <input type = "submit" value = "Continue to Payment Method" />
+            <input type = "submit" value = "Checkout Peach Payment" />
         </form >
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>     
@@ -28,7 +28,7 @@
             const amount = 550;
             const entityId = '8ac7a4c8841c938b0184257ed8b429f5';
             const currency = 'USD';
-            const transactionId = '76567';
+            const transactionId = '7567';
             const nonce = 'JHGJSGHDSKJHGJDHGJH';
             const paymentType = 'DB';
             const shopperResultUrl = 'https://peach-payment-integration.vercel.app';
@@ -58,4 +58,3 @@
     </style>
 
 </html>
-
