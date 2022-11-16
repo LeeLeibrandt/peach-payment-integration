@@ -28,10 +28,10 @@
             const amount = 100;
             const entityId = '8ac7a4c8841c938b0184257ed8b429f5';
             const currency = 'USD';
-            const transactionId = '43';
+            const transactionId = '44';
             const nonce = 'JHGJSGHDSKJHGJDHGJH';
             const paymentType = 'DB';
-            const shopperResultUrl = 'https://peach-payment-integration.vercel.app/shopperResultUrl.html/OrderNo43';
+            const shopperResultUrl = 'https://peach-payment-integration.vercel.app/shopperResultUrl.html/44';
             const hash = CryptoJS.HmacSHA256(`amount${amount}authentication.entityId${entityId}currency${currency}merchantTransactionId${transactionId}nonce${nonce}paymentType${paymentType}shopperResultUrl${shopperResultUrl}`, "3eea7c3057ca11ed9b4906f4cbb0b715");
             
             document.getElementById('amount').value = amount;
